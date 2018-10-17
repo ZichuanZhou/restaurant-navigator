@@ -1,0 +1,22 @@
+.topSide {
+}
+
+.inlineBlock {
+  display: inline-block;
+  /* margin-right: 10%; */
+}
+
+.grid-container3 {
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+}
+
+.grid-container1 {
+  display: inline-grid;
+  grid-template-columns: auto;
+}
+
+.right {
+  float: right;
+}
+
