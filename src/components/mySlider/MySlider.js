@@ -1,8 +1,8 @@
-import "rc-slider/assets/index.css";
-import "rc-tooltip/assets/bootstrap.css";
-import React, { Component } from "react";
+import 'rc-slider/assets/index.css';
+import 'rc-tooltip/assets/bootstrap.css';
+import React, { Component } from 'react';
 import './MySlider.css';
-import Slider from "rc-slider";
+import Slider from 'rc-slider';
 
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
@@ -10,11 +10,11 @@ const Range = createSliderWithTooltip(Slider.Range);
 export default class MySlider extends Component {
 
   componentWillMount() {
-    console.log('my slider will mount');
+    //console.log('my slider will mount');
   }
 
   componentDidMount() {
-    console.log('my slider did mount');
+    //console.log('my slider did mount');
   }
 
   onChange(e) {

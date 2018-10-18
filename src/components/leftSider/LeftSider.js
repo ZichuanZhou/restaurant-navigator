@@ -1,11 +1,20 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class LeftSider extends Component {
   render() {
-    return (
+
+    let restaurants = this.props.data.map((item, key)=>{
+      return (
+        <li key={key}>{item.restaurant.name}</li>
+      );
+    });
+
+    return(
       <div>
-        this is left sider
+        <ul>
+          {restaurants}
+        </ul>
       </div>
-    )
+    );
   }
 }
