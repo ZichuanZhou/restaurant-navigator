@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import './TopSider.css';
-import MyRadioButton from '../myRadioButton/MyRadioButton';
-import MySlider from '../mySlider/MySlider';
+import React, { Component } from "react";
+import "./TopSider.css";
+import MyRadioButton from "../myRadioButton/MyRadioButton";
+import MySlider from "../mySlider/MySlider";
 
 export default class TopSider extends Component {
-  componentWillMount(){
+  componentWillMount() {
     //console.log('Top sider will mount')
   }
 
@@ -14,42 +14,131 @@ export default class TopSider extends Component {
 
   render() {
     return (
-      <div className=''>
-        
-        <div className='inlineBlock'>
+      <div className="">
+        <div className="inlineBlock">
           <h4>CATEGORY</h4>
-          <div className='grid-container1'>
-            <MyRadioButton getRestaurant={this.props.getRestaurant} val='Dining' name='category'/>
-            <MyRadioButton getRestaurant={this.props.getRestaurant} val='Take-Away' name='category'/>
-            <MyRadioButton getRestaurant={this.props.getRestaurant} val='Delivery' name='category'/>
-            <MyRadioButton getRestaurant={this.props.getRestaurant} val='Pubs & Bars' name='category'/>
+          <div className="grid-container1">
+            <MyRadioButton
+              getRestaurant={this.props.getRestaurant}
+              id="10"
+              val="Dinner"
+              name="category"
+            />
+            <MyRadioButton
+              getRestaurant={this.props.getRestaurant}
+              id="5"
+              val="Take-Away"
+              name="category"
+            />
+            <MyRadioButton
+              getRestaurant={this.props.getRestaurant}
+              id="1"
+              val="Delivery"
+              name="category"
+            />
+            <MyRadioButton
+              getRestaurant={this.props.getRestaurant}
+              id="11"
+              val="Pubs & Bars"
+              name="category"
+            />
           </div>
         </div>
-       
-        <div className='inlineBlock'>
+
+        <div className="inlineBlock">
           <h4>CUISINE</h4>
-          <div className='grid-container3'>
-            <MyRadioButton getRestaurant={this.props.getRestaurant} val='Cafe Food' name='cuisine'/>
-            <MyRadioButton getRestaurant={this.props.getRestaurant} val='Asian' name='cuisine'/>
-            <MyRadioButton getRestaurant={this.props.getRestaurant} val='Chinese' name='cuisine'/>
-            <MyRadioButton getRestaurant={this.props.getRestaurant} val='Coffee and Tea' name='cuisine'/>
-            <MyRadioButton getRestaurant={this.props.getRestaurant} val='Bakery' name='cuisine'/>
-            <MyRadioButton getRestaurant={this.props.getRestaurant} val='Pub Food' name='cuisine'/>
-            <MyRadioButton getRestaurant={this.props.getRestaurant} val='Pizza' name='cuisine'/>
-            <MyRadioButton getRestaurant={this.props.getRestaurant} val='Italian' name='cuisine'/>
-            <MyRadioButton getRestaurant={this.props.getRestaurant} val='Other' name='cuisine'/>
-            <MyRadioButton getRestaurant={this.props.getRestaurant} val='Fast Food' name='cuisine'/>
-            <MyRadioButton getRestaurant={this.props.getRestaurant} val='Sandwich' name='cuisine'/>
+          <div className="grid-container3">
+            <MyRadioButton
+              getRestaurant={this.props.getRestaurant}
+              id="1039"
+              val="Cafe Food"
+              name="cuisine"
+            />
+            <MyRadioButton
+              getRestaurant={this.props.getRestaurant}
+              id="3"
+              val="Asian"
+              name="cuisine"
+            />
+            <MyRadioButton
+              getRestaurant={this.props.getRestaurant}
+              id="25"
+              val="Chinese"
+              name="cuisine"
+            />
+            <MyRadioButton
+              getRestaurant={this.props.getRestaurant}
+              id="161"
+              val="Coffee and Tea"
+              name="cuisine"
+            />
+            <MyRadioButton
+              getRestaurant={this.props.getRestaurant}
+              id="5"
+              val="Bakery"
+              name="cuisine"
+            />
+            <MyRadioButton
+              getRestaurant={this.props.getRestaurant}
+              id="983"
+              val="Pub Food"
+              name="cuisine"
+            />
+            <MyRadioButton
+              getRestaurant={this.props.getRestaurant}
+              id="82"
+              val="Pizza"
+              name="cuisine"
+            />
+            <MyRadioButton
+              getRestaurant={this.props.getRestaurant}
+              id="55"
+              val="Italian"
+              name="cuisine"
+            />
+            <MyRadioButton
+              getRestaurant={this.props.getRestaurant}
+              id="110"
+              val="Other"
+              name="cuisine"
+            />
+            <MyRadioButton
+              getRestaurant={this.props.getRestaurant}
+              id="40"
+              val="Fast Food"
+              name="cuisine"
+            />
+            <MyRadioButton
+              getRestaurant={this.props.getRestaurant}
+              id="304"
+              val="Sandwich"
+              name="cuisine"
+            />
           </div>
         </div>
 
-        <div className='inlineBlock right'>
-          <div className='grid-container1'>            
-            <MySlider name='RATING' rangeFrom='0' rangeTo='5'/>
-            <MySlider name='COST' rangeFrom='$' rangeTo='$$$$'/>
+        <div className="inlineBlock right">
+          <div className="grid-container1">
+            <MySlider
+              filterRestaurant={this.props.filterRestaurant}
+              disableSlider={this.props.disableSlider}
+              name="RATING"
+              rangeFrom="0"
+              rangeTo="5"
+              min="0"
+              max="5"
+            />
+            <MySlider
+              filterRestaurant={this.props.filterRestaurant}
+              disableSlider={this.props.disableSlider}
+              name="COST"
+              rangeFrom="$"
+              rangeTo="$$$$"
+              min="1"
+              max="4"
+            />
           </div>
         </div>
-
       </div>
     );
   }

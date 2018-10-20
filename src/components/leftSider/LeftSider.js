@@ -1,19 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import "./LeftSide.css";
 
 export default class LeftSider extends Component {
-  render() {
+  handleClick = item => {
+    this.props.clickHandler(item);
+  };
 
-    let restaurants = this.props.data.map((item, key)=>{
+  render() {
+    let restaurants = this.props.data.map((item, key) => {
       return (
-        <li key={key}>{item.restaurant.name}</li>
+        <li onClick={() => this.handleClick(item)} key={key}>
+          {item.restaurant.name}
+        </li>
       );
     });
 
-    return(
+    return (
       <div>
-        <ul>
-          {restaurants}
-        </ul>
+        <ul>{restaurants}</ul>
       </div>
     );
   }

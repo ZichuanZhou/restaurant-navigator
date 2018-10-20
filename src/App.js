@@ -1,99 +1,125 @@
-import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
-import TopSider from './components/topSider/TopSider';
-import LeftSider from './components/leftSider/LeftSider';
-import RightSider from './components/rightSider/RightSider';
+import React, { Component } from "react";
+import "./App.css";
+import TopSider from "./components/topSider/TopSider";
+import LeftSider from "./components/leftSider/LeftSider";
+import RightSider from "./components/rightSider/RightSider";
+import { searchRestaurant, filterRestaurant } from "./api/Zomato";
 
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      category: '',
-      cuisine: '',
-      restaurantInfo: []
+      category: "",
+      cuisine: "",
+      restaurantDetail: [],
+      restaurantData: [],
+      restaurantFilterData: []
     };
-    //this.getRestaurantInfo = this.getRestaurantInfo.bind(this);
   }
 
   componentWillMount() {
-    console.log('will mount');
+    console.log("will mount");
   }
 
   componentDidMount() {
-    console.log('did mount');
-
+    console.log("did mount");
   }
 
   componentWillUpdate() {
-    console.log(this.state.category,this.state.cuisine);
+    console.log(
+      "category " + this.state.category,
+      "cuisine " + this.state.cuisine
+    );
   }
 
-
-  getRestaurantInfo = async(e) => {
-   // e.preventDefault();    
-    let header = {
-      method: 'GET',
-      headers: {
-        'user-key': '3c5a34db21cc766a8f32bfdb50085d74',
-        'Accept': 'application/json'
-      }
-    };
-    let reqURL = 'https://developers.zomato.com/api/v2.1/search?entity_id=297&entity_type=city';
-
-    if(e.target.name === 'category') {
-      console.log('above category')
+  setMyState = e => {
+    if (e.target.name === "category") {
       this.setState({
         category: e.target.value
-      },()=>{
-        console.log(this.state.category)
       });
-      
-    } else if (e.target.name === 'cuisine') {
-      console.log('above cuisine')
+    } else if (e.target.name === "cuisine") {
       this.setState({
         cuisine: e.target.value
-      },()=>{
-        console.log(this.state.cuisine)
       });
-      
     }
+  };
 
-
-
-    
-    if(this.state.category !== '' && this.state.cuisine !== '') {
-      reqURL = 'https://developers.zomato.com/api/v2.1/search?entity_id=297&entity_type=city&cuisines='
-                      +this.state.cuisine+'&category='+this.state.category;
-    } else if(this.state.category !== '') {
-      reqURL = 'https://developers.zomato.com/api/v2.1/search?entity_id=297&entity_type=city&&category='
-                      +this.state.category;
-    } else if(this.state.cuisine !== '') {
-      reqURL = 'https://developers.zomato.com/api/v2.1/search?entity_id=297&entity_type=city&&cuisines='
-                      +this.state.cuisine;
-    }
-
-    console.log(reqURL);
-    const rawData = await fetch(reqURL, header);
-    //console.log('raw data',rawData);
-    const rawDataJSON = await rawData.json();
-    //console.log('raw data json',rawDataJSON)
-    const restaurantData = await rawDataJSON.restaurants;
-    //console.log('restaurant data',restaurantData);
+  getRestaurantData = async e => {
+    // e.preventDefault();
     this.setState({
-      restaurantInfo: restaurantData
+      restaurantDetail: [] //refresh the right side content
+    });
+
+    await this.setMyState(e); //setState is an async method
+
+    searchRestaurant(this.state.category, this.state.cuisine).then(res => {
+      this.setState({
+        restaurantData: res,
+        restaurantFilterData: res
+      });
     });
   };
 
+  filterRestaurantData = (e, max) => {
+    console.log("min " + e[0]);
+    console.log("max " + e[1]);
+    console.log(max);
 
+    let data = this.state.restaurantData;
+    console.log(data);
+
+    if (max === 4) {
+      //filter by cost
+      data = data.filter(item => {
+        return (
+          item.restaurant.price_range >= e[0] &&
+          item.restaurant.price_range <= e[1]
+        );
+      });
+      this.setState({
+        restaurantFilterData: data
+      });
+    } else if (max == 5) {
+      //filter by rating
+      data = data.filter(item => {
+        return (
+          item.restaurant.user_rating.aggregate_rating >= e[0] &&
+          item.restaurant.user_rating.aggregate_rating <= e[1]
+        );
+      });
+      this.setState({
+        restaurantFilterData: data
+      });
+    }
+  };
+
+  handleClick = data => {
+    console.log(data);
+    this.setState({
+      restaurantDetail: data
+    });
+  };
 
   render() {
+    let disableSlider = this.state.restaurantData.length > 0 ? false : true; //disable slider if there is no restaurant data
     return (
-      <div className='App'>
-        <TopSider getRestaurant={this.getRestaurantInfo} />
-        <LeftSider data={this.state.restaurantInfo} />
-        <RightSider />
+      <div className="App">
+        <div className="top-bar">
+          <TopSider
+            getRestaurant={this.getRestaurantData}
+            filterRestaurant={this.filterRestaurantData}
+            //disableSlider = {disableSlider}
+          />
+        </div>
+        <div className="left-bar">
+          <LeftSider
+            clickHandler={this.handleClick}
+            data={this.state.restaurantFilterData}
+          />
+        </div>
+        <div className="right-bar">
+          <RightSider detail={this.state.restaurantDetail} />
+        </div>
       </div>
     );
   }

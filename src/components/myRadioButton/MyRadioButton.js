@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import './MyRadioButton.css';
+import React, { Component } from "react";
+import "./MyRadioButton.css";
 
 export default class MyRadioButton extends Component {
-
-  componentWillMount(){
+  componentWillMount() {
     //console.log('My radio button will mount')
   }
 
@@ -12,18 +11,21 @@ export default class MyRadioButton extends Component {
   }
 
   onChange(e) {
-    console.log(e.target.value, e.target.name);
+    //console.log(e.target.value, e.target.name);
     this.props.getRestaurant(e);
-    
-    //TODO filter list
   }
 
   render() {
     return (
-      <div className='grid-item'>
-        <input type='radio' value={this.props.val} name={this.props.name}  onChange={this.onChange.bind(this)} />
+      <div className="grid-item">
+        <input
+          type="radio"
+          value={this.props.id}
+          name={this.props.name}
+          onChange={this.props.getRestaurant}
+        />
         {this.props.val}
       </div>
-    )
+    );
   }
 }
