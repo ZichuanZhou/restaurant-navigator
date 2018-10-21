@@ -20,13 +20,13 @@ export default class MyRadioButton extends Component {
       <div className="grid-item">
         <label className="radio-container">
           {this.props.val}
-          <input 
+          <input
             type="radio"
             value={this.props.id}
             name={this.props.name}
             onChange={this.props.getRestaurant}
           />
-          <span className="check-mark"></span>
+          <span className="check-mark" />
         </label>
       </div>
     );

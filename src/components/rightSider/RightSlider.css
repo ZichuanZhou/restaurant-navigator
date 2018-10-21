@@ -3,8 +3,9 @@
 }
 
 .right-side > .column > img {
-  width: 562px;
-  height: 564px;
+  max-width: 562px;
+  width: 100%;
+  height: auto;
 }
 
 .icon-div {
@@ -12,12 +13,11 @@
   align-items: center;
 }
 
-.img-icon{
+.img-icon {
   height: 27px;
   float: left;
   margin-right: 10px;
 }
-
 
 .icon-text {
   font-size: 24px;
@@ -38,7 +38,6 @@
 }
 
 .restaurant-name {
-  
   font-size: 40px;
   line-height: 50px;
   color: #373737;
@@ -70,6 +69,5 @@
 }
 
 .restaurant-div {
-  
   padding: 20px 0;
 }

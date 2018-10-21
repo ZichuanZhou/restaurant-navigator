@@ -1,5 +1,4 @@
 import "rc-slider/assets/index.css";
-// import "rc-tooltip/assets/bootstrap.css";
 import React, { Component } from "react";
 import "./MySlider.css";
 import Slider from "rc-slider";
@@ -35,12 +34,12 @@ export default class MySlider extends Component {
           defaultValue={[0, 5]}
           trackStyle={[
             {
-              backgroundColor:"#4fbdbf",
+              backgroundColor: "#4fbdbf",
               height: 20
             }
           ]}
           handleStyle={{
-            backgroundColor: '#f1f1f1',
+            backgroundColor: "#f1f1f1",
             width: 29,
             height: 29
           }}

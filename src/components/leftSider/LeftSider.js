@@ -9,7 +9,11 @@ export default class LeftSider extends Component {
   render() {
     let restaurants = this.props.data.map((item, key) => {
       return (
-        <li className="left-side-li" onClick={() => this.handleClick(item)} key={key}>
+        <li
+          className="left-side-li"
+          onClick={() => this.handleClick(item)}
+          key={key}
+        >
           {item.restaurant.name}
         </li>
       );

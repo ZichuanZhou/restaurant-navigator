@@ -2,10 +2,21 @@
   display: flex;
 }
 
-.inline-block {
+/* .inline-block1 {
   display: inline-block;
-  /* margin-right: 10%; */
+  width: 15%;
 }
+
+.inline-block2 {
+  display: inline-block;
+  width: 40%;
+}
+
+.inline-block3 {
+  display: inline-block;
+  margin-left: 5%;
+  width: 30%;
+} */
 
 .grid-container3 {
   display: inline-grid;
@@ -19,6 +30,10 @@
 
 .float-right {
   float: right;
+}
+
+.right {
+  margin-left: 10%;
 }
 
 .topside-title {

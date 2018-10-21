@@ -1,8 +1,8 @@
 .my-slider {
-  min-width: 500px;
+  width: 500px;
 }
 
-.my-slider p{
+.my-slider p {
   margin-bottom: 0;
 }
 
