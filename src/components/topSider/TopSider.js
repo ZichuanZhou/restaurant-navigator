@@ -15,8 +15,8 @@ export default class TopSider extends Component {
   render() {
     return (
       <div className="">
-        <div className="inlineBlock">
-          <h4>CATEGORY</h4>
+        <div className="inline-block">
+          <h4 className="topside-title">CATEGORY</h4>
           <div className="grid-container1">
             <MyRadioButton
               getRestaurant={this.props.getRestaurant}
@@ -45,8 +45,8 @@ export default class TopSider extends Component {
           </div>
         </div>
 
-        <div className="inlineBlock">
-          <h4>CUISINE</h4>
+        <div className="inline-block">
+          <h4 className="topside-title">CUISINE</h4>
           <div className="grid-container3">
             <MyRadioButton
               getRestaurant={this.props.getRestaurant}
@@ -117,7 +117,7 @@ export default class TopSider extends Component {
           </div>
         </div>
 
-        <div className="inlineBlock right">
+        <div className="inline-block right">
           <div className="grid-container1">
             <MySlider
               filterRestaurant={this.props.filterRestaurant}

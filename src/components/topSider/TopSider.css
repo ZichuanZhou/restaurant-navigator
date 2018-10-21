@@ -1,7 +1,7 @@
 .topSide {
 }
 
-.inlineBlock {
+.inline-block {
   display: inline-block;
   /* margin-right: 10%; */
 }
@@ -18,4 +18,13 @@
 
 .right {
   float: right;
+}
+
+.topside-title {
+  font-size: 18px;
+  letter-spacing: 2px;
+  line-height: 20px;
+  color: #4e5456;
+  font-family: "Open Sans";
+  font-weight: bold;
 }

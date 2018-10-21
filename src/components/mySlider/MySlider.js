@@ -16,17 +16,9 @@ export default class MySlider extends Component {
     //console.log('my slider did mount');
   }
 
-  onChange(e) {
+  onAfterChange(e) {
     //console.log(e);
     this.props.filterRestaurant(e);
-  }
-
-  handleMouseDown = (e) => {
-    console.log(e);
-  }
-
-  handleMouseUp= (e) =>{
-    console.log(e);
   }
 
   render() {
@@ -37,12 +29,10 @@ export default class MySlider extends Component {
         <h4>{this.props.name}</h4>
         <Range
           onAfterChange={(e)=>this.props.filterRestaurant(e, maxValue)}
-
           disabled={this.props.disableSlider}
           min={minValue}
           max={maxValue}
           defaultValue={[0, 5]}
-          // tipFormatter={value => `${value}%`}
         />
         <span>{this.props.rangeFrom}</span>
         <span className="right">{this.props.rangeTo}</span>

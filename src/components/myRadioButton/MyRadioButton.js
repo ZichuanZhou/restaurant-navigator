@@ -18,13 +18,14 @@ export default class MyRadioButton extends Component {
   render() {
     return (
       <div className="grid-item">
-        <input
+        <input 
           type="radio"
           value={this.props.id}
           name={this.props.name}
           onChange={this.props.getRestaurant}
         />
-        {this.props.val}
+        <label className="radio-text">{this.props.val}</label>
+        
       </div>
     );
   }

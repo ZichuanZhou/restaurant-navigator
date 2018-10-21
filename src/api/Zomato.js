@@ -34,6 +34,4 @@ export const searchRestaurant = (category, cuisine) => {
   });
 };
 
-export const filterRestaurant = () => {
-  
-};
+export const filterRestaurant = () => {};

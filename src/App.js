@@ -13,44 +13,46 @@ export default class App extends Component {
       cuisine: "",
       restaurantDetail: [],
       restaurantData: [],
-      restaurantFilterData: []
+      restaurantFilterData: [],
+      ratingMin: 0,
+      ratingMax: 5,
+      costMin: 1,
+      costMax: 4
     };
   }
 
   componentWillMount() {
-    console.log("will mount");
+    //console.log("will mount");
   }
 
   componentDidMount() {
-    console.log("did mount");
+    //console.log("did mount");
   }
 
   componentWillUpdate() {
-    console.log(
-      "category " + this.state.category,
-      "cuisine " + this.state.cuisine
-    );
+    // console.log(
+    //   "category " + this.state.category,
+    //   "cuisine " + this.state.cuisine
+    // );
   }
 
-  setMyState = e => {
-    if (e.target.name === "category") {
-      this.setState({
-        category: e.target.value
-      });
-    } else if (e.target.name === "cuisine") {
-      this.setState({
-        cuisine: e.target.value
-      });
-    }
-  };
+  setMyState = (name, value) => {
+    this.setState({
+      [name]: value //bracket notation
+    });
+  }
 
-  getRestaurantData = async e => {
+  getRestaurantData = async e => { //need to use await, function must be async
     // e.preventDefault();
     this.setState({
       restaurantDetail: [] //refresh the right side content
     });
 
-    await this.setMyState(e); //setState is an async method
+    if (e.target.name === "category") {
+      await this.setMyState("category", e.target.value);
+    } else if (e.target.name === "cuisine") {
+      await this.setMyState("cuisine", e.target.value);
+    }
 
     searchRestaurant(this.state.category, this.state.cuisine).then(res => {
       this.setState({
@@ -60,37 +62,37 @@ export default class App extends Component {
     });
   };
 
-  filterRestaurantData = (e, max) => {
-    console.log("min " + e[0]);
-    console.log("max " + e[1]);
-    console.log(max);
-
+  filterRestaurantData = async (e, max) => { //need to use await, function must be async
+    this.setState({
+      restaurantDetail: [] //refresh the right side content
+    });
+    // console.log("min " + e[0]);
+    // console.log("max " + e[1]);
+    // console.log(max);
     let data = this.state.restaurantData;
-    console.log(data);
+    //console.log(data);
 
-    if (max === 4) {
-      //filter by cost
-      data = data.filter(item => {
-        return (
-          item.restaurant.price_range >= e[0] &&
-          item.restaurant.price_range <= e[1]
-        );
-      });
-      this.setState({
-        restaurantFilterData: data
-      });
-    } else if (max == 5) {
-      //filter by rating
-      data = data.filter(item => {
-        return (
-          item.restaurant.user_rating.aggregate_rating >= e[0] &&
-          item.restaurant.user_rating.aggregate_rating <= e[1]
-        );
-      });
-      this.setState({
-        restaurantFilterData: data
-      });
+    //TODO below condition check is tricky for this case, need to find out a better way
+    if (max === 4) {            //filter by cost
+      await this.setMyState("costMin",e[0]); 
+      await this.setMyState("costMax",e[1]);
+    } else if (max == 5) {      //filter by rating
+      await this.setMyState("ratingMin",e[0]);
+      await this.setMyState("ratingMax",e[1]);
     }
+
+    data = data.filter(item => {
+      return (
+        item.restaurant.user_rating.aggregate_rating >= this.state.ratingMin &&
+        item.restaurant.user_rating.aggregate_rating <= this.state.ratingMax &&
+        item.restaurant.price_range >= this.state.costMin &&
+        item.restaurant.price_range <= this.state.costMax
+      );
+    });
+    
+    this.setState({
+      restaurantFilterData: data
+    });
   };
 
   handleClick = data => {
@@ -108,7 +110,7 @@ export default class App extends Component {
           <TopSider
             getRestaurant={this.getRestaurantData}
             filterRestaurant={this.filterRestaurantData}
-            //disableSlider = {disableSlider}
+            disableSlider = {disableSlider}
           />
         </div>
         <div className="left-bar">
