@@ -1,5 +1,5 @@
 import "rc-slider/assets/index.css";
-import "rc-tooltip/assets/bootstrap.css";
+// import "rc-tooltip/assets/bootstrap.css";
 import React, { Component } from "react";
 import "./MySlider.css";
 import Slider from "rc-slider";
@@ -25,17 +25,30 @@ export default class MySlider extends Component {
     let minValue = parseInt(this.props.min);
     let maxValue = parseInt(this.props.max);
     return (
-      <div className="mySlider">
-        <h4>{this.props.name}</h4>
+      <div className="my-slider">
+        <h4 className="slider-text slider-title">{this.props.name}</h4>
         <Range
-          onAfterChange={(e)=>this.props.filterRestaurant(e, maxValue)}
+          onAfterChange={e => this.props.filterRestaurant(e, maxValue)}
           disabled={this.props.disableSlider}
           min={minValue}
           max={maxValue}
           defaultValue={[0, 5]}
+          trackStyle={[
+            {
+              backgroundColor:"#4fbdbf",
+              height: 20
+            }
+          ]}
+          handleStyle={{
+            backgroundColor: '#f1f1f1',
+            width: 29,
+            height: 29
+          }}
         />
-        <span>{this.props.rangeFrom}</span>
-        <span className="right">{this.props.rangeTo}</span>
+        <p>
+          <span className="slider-text">{this.props.rangeFrom}</span>
+          <span className="slider-text float-right">{this.props.rangeTo}</span>
+        </p>
       </div>
     );
   }

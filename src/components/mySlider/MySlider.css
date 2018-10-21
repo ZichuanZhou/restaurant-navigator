@@ -1,8 +1,19 @@
-.mySlider {
-  min-width: 300px;
-  max-width: 500px;
+.my-slider {
+  min-width: 500px;
 }
 
-.right {
-  float: right;
+.my-slider p{
+  margin-bottom: 0;
+}
+
+.slider-title {
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.slider-text {
+  font-size: 18px;
+  line-height: 20px;
+  color: #4e5456;
+  font-family: "Lato";
 }

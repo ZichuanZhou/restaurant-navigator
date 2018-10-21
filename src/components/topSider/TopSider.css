@@ -1,4 +1,5 @@
-.topSide {
+.flex-container {
+  display: flex;
 }
 
 .inline-block {
@@ -16,7 +17,7 @@
   grid-template-columns: auto;
 }
 
-.right {
+.float-right {
   float: right;
 }
 
