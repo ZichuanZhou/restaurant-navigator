@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import "./TopSider.css";
 import MyRadioButton from "../myRadioButton/MyRadioButton";
 import MySlider from "../mySlider/MySlider";
@@ -142,4 +143,10 @@ export default class TopSider extends Component {
       </div>
     );
   }
+}
+
+TopSider.propTypes = {
+  getRestaurant: PropTypes.func.isRequired,
+  filterRestaurant: PropTypes.func.isRequired,
+  disableSlider: PropTypes.bool
 }

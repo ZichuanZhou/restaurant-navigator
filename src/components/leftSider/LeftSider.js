@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import "./LeftSide.css";
 
 export default class LeftSider extends Component {
@@ -30,3 +31,9 @@ export default class LeftSider extends Component {
     );
   }
 }
+
+LeftSider.propTypes = {
+  clickHandler: PropTypes.func.isRequired,
+  data: PropTypes.array.isRequired
+}
+

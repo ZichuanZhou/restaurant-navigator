@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import "./RightSlider.css";
 import yesImg from "../../images/yes.png";
 import noImg from "../../images/no.png";
@@ -55,4 +56,8 @@ export default class RightSider extends Component {
 
     return <div>{content}</div>;
   }
+}
+
+RightSider.propTypes = {
+  detail: PropTypes.object.isRequired
 }

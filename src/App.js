@@ -11,7 +11,7 @@ export default class App extends Component {
     this.state = {
       category: "",
       cuisine: "",
-      restaurantDetail: [],
+      restaurantDetail: {},
       restaurantData: [],
       restaurantFilterData: [],
       ratingMin: 0,
@@ -45,7 +45,7 @@ export default class App extends Component {
   getRestaurantData = async e => { //need to use await, function must be async
     // e.preventDefault();
     this.setState({
-      restaurantDetail: [] //refresh the right side content
+      restaurantDetail: {} //refresh the right side content
     });
 
     if (e.target.name === "category") {
@@ -64,7 +64,7 @@ export default class App extends Component {
 
   filterRestaurantData = async (e, max) => { //need to use await, function must be async
     this.setState({
-      restaurantDetail: [] //refresh the right side content
+      restaurantDetail: {} //refresh the right side content
     });
     // console.log("min " + e[0]);
     // console.log("max " + e[1]);

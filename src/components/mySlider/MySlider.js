@@ -1,5 +1,6 @@
 import "rc-slider/assets/index.css";
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import "./MySlider.css";
 import Slider from "rc-slider";
 
@@ -51,4 +52,14 @@ export default class MySlider extends Component {
       </div>
     );
   }
+}
+
+MySlider.propTypes = {
+  filterRestaurant: PropTypes.func.isRequired,
+  disableSlider: PropTypes.bool,
+  name: PropTypes.string,
+  rangeFrom: PropTypes.string,
+  rangeTo: PropTypes.string,
+  min: PropTypes.string,
+  max: PropTypes.string,
 }

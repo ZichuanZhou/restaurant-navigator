@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import "./MyRadioButton.css";
 
 export default class MyRadioButton extends Component {
@@ -31,4 +32,11 @@ export default class MyRadioButton extends Component {
       </div>
     );
   }
+}
+
+MyRadioButton.propTypes = {
+  getRestaurant: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+  val: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 }
