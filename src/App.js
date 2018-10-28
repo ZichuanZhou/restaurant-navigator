@@ -14,26 +14,12 @@ export default class App extends Component {
       restaurantDetail: {},
       restaurantData: [],
       restaurantFilterData: [],
+      //initialise values form slider props 
       ratingMin: 0,
       ratingMax: 5,
       costMin: 1,
       costMax: 4
     };
-  }
-
-  componentWillMount() {
-    //console.log("will mount");
-  }
-
-  componentDidMount() {
-    //console.log("did mount");
-  }
-
-  componentWillUpdate() {
-    // console.log(
-    //   "category " + this.state.category,
-    //   "cuisine " + this.state.cuisine
-    // );
   }
 
   setMyState = (name, value) => {
@@ -66,9 +52,7 @@ export default class App extends Component {
     this.setState({
       restaurantDetail: {} //refresh the right side content
     });
-    // console.log("min " + e[0]);
-    // console.log("max " + e[1]);
-    // console.log(max);
+
     let data = this.state.restaurantData;
     //console.log(data);
 

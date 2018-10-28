@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import "./LeftSide.css";
+import "./LeftSider.css";
 
 export default class LeftSider extends Component {
   handleClick = item => {
