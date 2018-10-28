@@ -118,7 +118,7 @@ export default class TopSider extends Component {
           </div>
         </div>
 
-        <div className="inline-block3 right">
+        <div className="inline-block3">
           <div className="grid-container1">
             <MySlider
               filterRestaurant={this.props.filterRestaurant}

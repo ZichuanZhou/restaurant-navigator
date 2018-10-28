@@ -1,5 +1,6 @@
 .my-slider {
-  width: 500px;
+  width: inherit;
+  margin-right: 10%;
 }
 
 .my-slider p {

@@ -1,11 +1,123 @@
 .right-side {
-  display: flex;
+  /* display: flex; */
 }
 
 .right-side > .column > img {
   max-width: 562px;
   width: 100%;
   height: auto;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+@media only screen and (min-width: 1200px) {
+  .column {
+    padding: 50px;
+  }
+  .restaurant-name {
+    font-size: 40px;
+    line-height: 50px;
+  }
+
+  .restaurant-address {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .restaurant-info {
+    font-size: 20px;
+    letter-spacing: 2px;
+    line-height: 30px;
+  }
+
+  .restaurant-content {
+    font-size: 34px;
+    line-height: 30px;
+  }
+
+  .icon-text {
+    font-size: 24px;
+    line-height: 46px;
+  }
+
+  .restaurant-div {
+    padding: 20px 0;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .column {
+    padding: 30px;
+  }
+
+  .restaurant-name {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .restaurant-address {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .restaurant-info {
+    font-size: 15px;
+    letter-spacing: 2px;
+    line-height: 24px;
+  }
+
+  .restaurant-content {
+    font-size: 26px;
+    line-height: 24px;
+  }
+
+  .icon-text {
+    font-size: 18px;
+    line-height: 32px;
+  }
+
+  .restaurant-div {
+    padding: 15px 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .column {
+    padding: 15px;
+  }
+  
+  .restaurant-name {
+    font-size: 20px;
+    line-height: 25px;
+  }
+
+  .restaurant-address {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .restaurant-info {
+    font-size: 10px;
+    letter-spacing: 2px;
+    line-height: 16px;
+  }
+
+  .restaurant-content {
+    font-size: 17px;
+    line-height: 16px;
+  }
+
+  .restaurant-div {
+    padding: 10px 0;
+  }
+
+  .icon-text {
+    font-size: 12px;
+    line-height: 20px;
+  }
 }
 
 .icon-div {
@@ -20,17 +132,9 @@
 }
 
 .icon-text {
-  font-size: 24px;
-  line-height: 46px;
   color: #4e5456;
   font-family: "Open Sans";
   vertical-align: middle;
-}
-
-.column {
-  float: left;
-  width: 50%;
-  padding: 50px;
 }
 
 .clear {
@@ -38,36 +142,23 @@
 }
 
 .restaurant-name {
-  font-size: 40px;
-  line-height: 50px;
   color: #373737;
   font-family: "Lato";
   font-weight: bold;
 }
 
 .restaurant-address {
-  font-size: 24px;
-  line-height: 30px;
   color: #727678;
   font-family: "Open Sans";
 }
 
 .restaurant-info {
-  font-size: 20px;
-  letter-spacing: 2px;
-  line-height: 30px;
   color: #373737;
   font-family: "Open Sans";
   font-weight: bold;
 }
 
 .restaurant-content {
-  font-size: 34px;
-  line-height: 30px;
   color: #4e5456;
   font-family: "Open Sans";
-}
-
-.restaurant-div {
-  padding: 20px 0;
 }
