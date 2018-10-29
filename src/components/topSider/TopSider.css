@@ -1,4 +1,11 @@
+.nav > label {
+  font-size: 26px;
+  display: none;
+}
 
+#toggle {
+  display: none;
+}
 
 @media only screen and (min-width: 1200px) {
   .flex-container {
@@ -25,15 +32,24 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .flex-container {
+  .nav > label {
     display: block;
-    grid-template-columns: auto auto;
+    cursor: pointer;
+    width: 30px;
+  } 
+
+  .flex-container {
+    display: none;
   }
 
   .top-bar {
     margin-top: 10px;
     margin-left: 30px;
     margin-bottom: 10px;
+  }
+
+  #toggle:checked + .flex-container {
+    display: block;
   }
 }
 

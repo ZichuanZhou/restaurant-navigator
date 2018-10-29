@@ -8,19 +8,6 @@ const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
 
 export default class MySlider extends Component {
-  componentWillMount() {
-    //console.log('my slider will mount');
-  }
-
-  componentDidMount() {
-    //console.log('my slider did mount');
-  }
-
-  onAfterChange(e) {
-    //console.log(e);
-    this.props.filterRestaurant(e);
-  }
-
   render() {
     let minValue = parseInt(this.props.min);
     let maxValue = parseInt(this.props.max);
